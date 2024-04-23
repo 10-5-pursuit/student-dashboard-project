@@ -9,14 +9,21 @@ function App() {
   const [ selectCohort, setSelectCohort ] = useState(null);
   const [ showAllStudents, setShowAllStudents ] = useState(false);
 
+  const handleShowAllStudents = () => {
+    !showAllStudents ? setSelectCohort(null) : null;
+    setShowAllStudents(!showAllStudents);
+  }
+
   return (
     <div className="app">
       <div>Pursuit</div>
-      <button onClick={() => setShowAllStudents(!showAllStudents)}>
+      <div>
+      <button onClick={() => handleShowAllStudents()}>
         {showAllStudents ? 'Hide All Students' : 'Show All Students'}
       </button>
       <CohortList data={data} setSelectCohort={setSelectCohort} />
       {showAllStudents ? <StudentList data={data} /> : selectCohort && <StudentList data={data} selectCohort={selectCohort} />}
+      </div>
     </div>
   );
 }
