@@ -1,8 +1,15 @@
+import React from "react";
+import './index.css'
+import NavBar from './Components/NavBar'
+
 
 function App() {
   return (
-    <div>
-      <h1>Student Dashboard</h1>
+    <div className='App'>
+      <NavBar />
+      <Aside />
+      <StudentList />
+
     </div>
   );
 }
