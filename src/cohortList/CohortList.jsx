@@ -1,6 +1,5 @@
 import './cohortList.scss';
 import React from 'react';
-import StudentList from '../studentList/StudentList';
 import { useState } from 'react';
 
 const CohortList = ({ data, setSelectCohort }) => {

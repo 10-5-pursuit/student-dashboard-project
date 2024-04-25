@@ -10,7 +10,7 @@ function App() {
   const [ showAllStudents, setShowAllStudents ] = useState(false);
 
   const handleShowAllStudents = () => {
-    !showAllStudents ? setSelectCohort(null) : null;
+    showAllStudents ? setSelectCohort(null) : null;
     setShowAllStudents(!showAllStudents);
   }
 
