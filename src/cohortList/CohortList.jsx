@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 const CohortList = ({ data, setSelectCohort, setSelectCohortReadable })  => {
   const [cohort, setCohort] = useState([]);
+  
 
 
   // useEffect hook changes the cohort state with unique and sorted cohort codes whenever data (the prop) changes or updates. Also known as a side effect.
@@ -13,9 +14,9 @@ const CohortList = ({ data, setSelectCohort, setSelectCohortReadable })  => {
       const [seasonA, yearA] = a.split(/(\d+)/);
       const [seasonB, yearB] = b.split(/(\d+)/);
       return yearB - yearA || newCohortListOrder.indexOf(seasonA) - newCohortListOrder.indexOf(seasonB)}).map(cohortCode => {
-        //
         const [season, year] = cohortCode.split(/(\d+)/);
         return { original: cohortCode, readable: `${season} ${year}`};
+        
       }));
   }, [data])
 
@@ -23,17 +24,22 @@ const CohortList = ({ data, setSelectCohort, setSelectCohortReadable })  => {
     setSelectCohort(c.original);
     setSelectCohortReadable(c.readable)
   }
+
+
   
   return (
     <div className='cohortList'>
-      {cohort.map((cohort, index) => (
-        <div className="cohortList__cohorts" key={index} onClick={() => handleCohortClick(cohort)}>
-          <h2 className='cohortList__cohort'>{cohort.readable}</h2>
-        </div>
-        
-      ))}
+    <div className="cohortList__cohorts">
     </div>
+    {cohort && cohort.map((c, index) => (
+      <div className="cohortList__cohorts" key={index} onClick={() => handleCohortClick(c)}>
+        <h2 className='cohortList__cohort'>{c.readable}</h2>
+      </div>
+    ))}
+  </div>
+  
   );
+  
 };
 
 
