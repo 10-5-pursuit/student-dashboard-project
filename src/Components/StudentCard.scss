@@ -1,0 +1,32 @@
+.student-container {
+    width: 400px;
+    height: 200px;
+    // border: 1px solid black;
+    // display: grid;
+    padding: 10px;
+    margin: 10px;
+    
+}
+.student-card {
+    width: 400px;
+    height: 200px;
+    // border: 1px solid black;
+    // display: grid;
+    border: 1px solid black;
+    padding: 10px;
+    
+    
+    .student-card__img img {
+        width: 100px;
+        border-radius: 10px;
+        margin: 10px;
+    }
+    .student-card__info {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+        
+    }
+}
