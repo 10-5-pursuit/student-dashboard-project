@@ -19,6 +19,7 @@ export default function StudentCard ({student}) {
                     <span>Birthday:</span> {student.dob}
                     </div>
                   </div>
+                  <p className='student-card__show'>Show More...</p>
             </div>
           
     

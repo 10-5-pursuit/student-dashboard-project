@@ -10,9 +10,12 @@ import students from  '../data/data.json'
 
 
 function App() {
+  //create a variable with current/ specific cohort and setCurrentCohort is what is going to change 
   const [ currentCohort, setCurrentCohort] =useState('All Students')
+  //// variable for currentstudent and when currentstudents change 
   const [currentStudents, setCurrentStudents] =useState(students)
   useEffect(()=> {
+    /// filter students based the specific cohort
     const filterStudents = students.filter(student => {
       if(currentCohort === 'All Students'){
         return true;
@@ -26,6 +29,7 @@ return (
       <Header />
       <Cohort setCurrentCohort={setCurrentCohort} />
       <StudentList currentCohort={currentCohort} currentStudents={currentStudents} setCurrentStudents={setCurrentStudents}/>
+      
       
         
    

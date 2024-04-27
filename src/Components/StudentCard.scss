@@ -8,11 +8,10 @@
     
 }
 .student-card {
-    width: 400px;
+    width: 350px;
     height: 200px;
     // border: 1px solid black;
-    // display: grid;
-    border: 1px solid black;
+    border: 2px solid #5E946E;
     padding: 10px;
     
     
@@ -29,4 +28,15 @@
     align-items: center;
         
     }
+    .student-card__show {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3px;
+    color: #5E946E;
+    cursor: pointer;
+    }
+   
 }

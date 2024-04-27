@@ -8,6 +8,7 @@
     padding: 0;
     box-sizing: border-box;
     grid-area: cohort;
+    cursor: pointer;
 }
 
 .cohort-program {
@@ -38,9 +39,12 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    row-gap: 35px;
+    row-gap: 50px;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
 }
 .cohort-students:hover, .cohort-startdate :hover {
     text-decoration: underline;
+    cursor: pointer;
 }
