@@ -44,12 +44,14 @@ function App() {
       <div className="app__navAndStudent">
         <NavBar data={data} setSearchBar={setSearchBar} setFilterStatus={setFilterStatus} />
         <div className="app__studentContainer">
-        <div> {selectCohortReadable} <span>({totalStudents})</span></div>
+          <div className="app__headerApp">
+        <div className="app__total"> {selectCohortReadable} <span>({totalStudents})</span></div>
         <select onChange={handleSortChange}>
           <option value="none">Select</option>
           <option value="asc"> ↑ DOB</option>
           <option value="desc">↓ DOB</option>
         </select>
+        </div>
         <StudentList data={data} selectCohort={selectCohort} sortStudents={sortStudents} handleSortChange={handleSortChange} searchBar={searchBar} filterStatus={filterStatus} showAllStudents={showAllStudents} selectedCohort={selectCohort} />
         </div>
       </div>

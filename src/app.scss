@@ -34,4 +34,21 @@ body,
       overflow-y: auto ;
       margin-top: 70px;
     }
+
+    &__total{
+      font-family: "Open Sans", sans-serif;;
+    }
+
+    &__total span {
+      font-size: 12px;
+      color: #1fd19f;
+      
+    }
+
+    &__headerApp {
+      display: flex;
+      justify-content: space-between;
+      margin-right: 90px;
+    }
+
 }
