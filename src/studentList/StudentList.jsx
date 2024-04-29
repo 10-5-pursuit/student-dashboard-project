@@ -1,7 +1,7 @@
 import React from "react";
 import './studentList.scss'
 import { useState } from "react";
-import CommentSection from "../CommentSection/CommentSection";
+import CommentSection from "../commentSection/CommentSection";
 
 
 const StudentList = ({ data, selectCohort, showAllStudents , sortStudents, searchBar, filterStatus }) => {
