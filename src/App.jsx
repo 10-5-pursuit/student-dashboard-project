@@ -4,7 +4,9 @@ import Header from './Components/Header'
 import Cohort from './Components/Cohort'
 import StudentList from './Components/StudentList'
 import StudentCard from './Components/StudentCard'
+import ShowMore from "./Components/ShowMore";
 import students from  '../data/data.json'
+import OneonOne from "./Components/OneonOne";
 
 
 
@@ -29,6 +31,8 @@ return (
       <Header />
       <Cohort setCurrentCohort={setCurrentCohort} />
       <StudentList currentCohort={currentCohort} currentStudents={currentStudents} setCurrentStudents={setCurrentStudents}/>
+      <ShowMore />
+      <OneonOne />
       
       
         
