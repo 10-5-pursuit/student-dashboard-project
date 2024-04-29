@@ -24,12 +24,15 @@ function App() {
   }, [data, showAllStudents, selectCohort]);
 
   const toggleShowAllStudents = () => {
-    setShowAllStudents(prevShowAllStudents => !prevShowAllStudents);
-    if (!showAllStudents) {
-      setSelectCohort(null);
-      setSelectCohortReadable('No Students');
-    }
+    setShowAllStudents(prevShowAllStudents => {
+      const newShowAllStudents = !prevShowAllStudents;
+      const readableCohortName = newShowAllStudents ? 'All Students' : 'No Students';
+      setSelectCohortReadable(readableCohortName);
+      return newShowAllStudents;
+    });
+    showAllStudents ? null : setSelectCohort(null);
   }
+  
 
   const handleCohortClick = (cohort) => {
     setSelectCohort(cohort.original);
