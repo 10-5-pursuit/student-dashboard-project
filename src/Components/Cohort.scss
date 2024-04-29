@@ -1,7 +1,7 @@
 .cohort {
     background-color: black;
     width: 200px;
-    height: 100%;
+    height: 100vh;
     border: 1px solid black;
     color: white;
     margin: 0;
@@ -9,6 +9,7 @@
     box-sizing: border-box;
     grid-area: cohort;
     cursor: pointer;
+    position: fixed;
 }
 
 .cohort-program {
