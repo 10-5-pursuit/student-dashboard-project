@@ -15,26 +15,25 @@ function App() {
   const [ searchBar, setSearchBar] = useState('');
   const [ filterStatus, setFilterStatus ] = useState('All');
 
-  const totalStudents = useMemo(() => {
-    return showAllStudents ? data.length : selectCohort ? data.filter(student => student.cohort.cohortCode === selectCohort).length : 0;
-  }, [data, showAllStudents, selectCohort]);
-
   const handleSortChange = (e) => {
     setSortStudents(e.target.value);
   }
 
+  const totalStudents = useMemo(() => {
+    return showAllStudents ? data.length : selectCohort ? data.filter(student => student.cohort.cohortCode === selectCohort).length : 0;
+  }, [data, showAllStudents, selectCohort]);
+
   const toggleShowAllStudents = () => {
-    setShowAllStudents(prevShowAllStudents => {
-      const newShowAllStudents = !prevShowAllStudents;
-      const readableCohortName = newShowAllStudents ? 'All Students' : 'No Students';
-      setSelectCohortReadable(readableCohortName);
-      return newShowAllStudents;
-    });
-    setSelectCohort(null);
+    setShowAllStudents(prevShowAllStudents => !prevShowAllStudents);
+    if (!showAllStudents) {
+      setSelectCohort(null);
+      setSelectCohortReadable('No Students');
+    }
   }
 
   const handleCohortClick = (cohort) => {
     setSelectCohort(cohort.original);
+    setShowAllStudents(false);
     setSelectCohortReadable(cohort.readable);
   }
 
@@ -45,21 +44,21 @@ function App() {
         <NavBar data={data} setSearchBar={setSearchBar} setFilterStatus={setFilterStatus} />
         <div className="app__studentContainer">
           <div className="app__headerApp">
-        <div className="app__total"> {selectCohortReadable} <span>({totalStudents})</span></div>
-        <select onChange={handleSortChange}>
-          <option value="none">Select</option>
-          <option value="asc"> ↑ DOB</option>
-          <option value="desc">↓ DOB</option>
-        </select>
-        </div>
-        <StudentList data={data} selectCohort={selectCohort} sortStudents={sortStudents} handleSortChange={handleSortChange} searchBar={searchBar} filterStatus={filterStatus} showAllStudents={showAllStudents} selectedCohort={selectCohort} />
+            <div className="app__total"> {selectCohortReadable} <span>({totalStudents})</span></div>
+            <select onChange={handleSortChange}>
+              <option value="none">Select</option>
+              <option value="asc"> ↑ DOB</option>
+              <option value="desc">↓ DOB</option>
+            </select>
+          </div>
+          <StudentList data={data} selectCohort={selectCohort} sortStudents={sortStudents} handleSortChange={handleSortChange} searchBar={searchBar} filterStatus={filterStatus} showAllStudents={showAllStudents} selectedCohort={selectCohort} />
         </div>
       </div>
     </div>
   );
-  
-  
 }
+
+
 
 
 

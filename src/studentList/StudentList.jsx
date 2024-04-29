@@ -1,11 +1,12 @@
 import React from "react";
 import './studentList.scss'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CommentSection from "../commentSection/CommentSection";
 
 
 const StudentList = ({ data, selectCohort, showAllStudents , sortStudents, searchBar, filterStatus }) => {
     const [ openExtraDetails, setOpenExtraDetails] = useState(null);
+    let [students, setStudents] = useState([]);
 
     
     const middleNameToInitial = (middleName) => {
@@ -17,8 +18,11 @@ const StudentList = ({ data, selectCohort, showAllStudents , sortStudents, searc
         return months[month - 1];
     } 
 
-    let students = showAllStudents ? data : (selectCohort ? data.filter(student => 
-       student.cohort.cohortCode === selectCohort) : []);
+    useEffect(() => {
+        let updatedStudents = showAllStudents ? data : (selectCohort ? data.filter(student => 
+            student.cohort.cohortCode === selectCohort) : []);
+        setStudents(updatedStudents);
+      }, [selectCohort, showAllStudents, data]);
 
     const checkStatus = (  certifications, score ) => {
         return certifications.resume && certifications.linkedin && certifications.github && certifications.mockInterview && score > 600 ? 'On Track' : 'Off Track';
@@ -34,8 +38,11 @@ const StudentList = ({ data, selectCohort, showAllStudents , sortStudents, searc
         const fullName = `${student.names.preferredName || ''} ${student.names.surname || ''}`.toLowerCase();
 
    const status = checkStatus(student.certifications, student.codewars.current.total);
+  
 
    return (searchBar ? fullName.includes(searchBar.toLowerCase()) : true) && (filterStatus === 'All' || status === filterStatus);
+
+   
 });
 
 return (
