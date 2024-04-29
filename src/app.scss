@@ -1,14 +1,37 @@
 html,
 body,
 #root {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   margin: 0;
-  width: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 .app {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    
+    
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__navAndStudent {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+  
+    }
+
+    &__studentContainer {
+      flex-grow: 1;
+      overflow-y: auto ;
+      margin-top: 70px;
+    }
 }
