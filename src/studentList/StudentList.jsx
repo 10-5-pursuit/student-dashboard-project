@@ -7,8 +7,8 @@ import CommentSection from "../commentSection/CommentSection";
 const StudentList = ({ data, selectCohort, showAllStudents , sortStudents, searchBar, filterStatus }) => {
     const [ openExtraDetails, setOpenExtraDetails] = useState(null);
     let [students, setStudents] = useState([]);
+    const [allStudents, setAllStudents] = useState(data);
 
-    
     const middleNameToInitial = (middleName) => {
         return middleName ? middleName[0] : '';
     }
@@ -19,12 +19,21 @@ const StudentList = ({ data, selectCohort, showAllStudents , sortStudents, searc
     } 
 
     useEffect(() => {
+        setAllStudents(data);
         let updatedStudents = showAllStudents ? data : (selectCohort ? data.filter(student => 
-            student.cohort.cohortCode === selectCohort) : []);
+          student.cohort.cohortCode === selectCohort) : []);
+        if (searchBar) {
+            updatedStudents = allStudents.filter(student => {
+                const fullName = `${student.names.preferredName || ''} ${student.names.surname || ''}`.toLowerCase();
+                return fullName.includes(searchBar.toLowerCase());
+            });
+        }
         setStudents(updatedStudents);
-      }, [selectCohort, showAllStudents, data]);
+    }, [selectCohort, showAllStudents, searchBar, data]);
+    
 
-    const checkStatus = (  certifications, score ) => {
+
+      const checkStatus = (  certifications, score ) => {
         return certifications.resume && certifications.linkedin && certifications.github && certifications.mockInterview && score > 600 ? 'On Track' : 'Off Track';
 };
 
@@ -37,12 +46,11 @@ const StudentList = ({ data, selectCohort, showAllStudents , sortStudents, searc
     students = students.filter(student => {
         const fullName = `${student.names.preferredName || ''} ${student.names.surname || ''}`.toLowerCase();
 
-   const status = checkStatus(student.certifications, student.codewars.current.total);
+        const status = checkStatus(student.certifications, student.codewars.current.total);
+
+        const fullNameSearch = searchBar ? fullName.includes(searchBar.toLowerCase()) : true;
   
-
-   return (searchBar ? fullName.includes(searchBar.toLowerCase()) : true) && (filterStatus === 'All' || status === filterStatus);
-
-   
+        return fullNameSearch && (filterStatus === 'All' || status === filterStatus);
 });
 
 return (
@@ -85,11 +93,7 @@ return (
             </div>
         ))}
     </div>
-    
-)
+    )
 }
-
-
-
 
 export default StudentList;

@@ -11,7 +11,8 @@ const NavBar = ({ setSearchBar, setFilterStatus}) => {
         setSearchName(e.target.value);
     };
 
-    const handleSearchClick = () => {
+    const handleSearchClick = (e) => {
+        e.preventDefault();
         setSearchBar(searchName);
         setSearchName('');
     }
@@ -24,10 +25,10 @@ const NavBar = ({ setSearchBar, setFilterStatus}) => {
     return (
         <div className="navBar">
             <div className="navBar__searchAndFilter">
-            <div className="navBar__searchBar">
+            <form onSubmit={handleSearchClick} className="navBar__searchBar">
             <input type="text" placeholder="Search by Name" value={searchName} onChange={handleSearchBar} className="navBar__searchInput"/>
-            <button className="navBar__searchButton" onClick={handleSearchClick}>🔍</button>
-            </div>
+            <button type="submit" className="navBar__searchButton">🔍</button>
+            </form>
             <select value={filterStudents} onChange={handleFilterStatus} className="navBar__filter">
                 <option value="All">All</option>
                 <option value="On Track">On Track</option>

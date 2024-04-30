@@ -30,6 +30,7 @@ function App() {
       setSelectCohortReadable(readableCohortName);
       return newShowAllStudents;
     });
+    setSearchBar('');
     showAllStudents ? null : setSelectCohort(null);
   }
   
@@ -38,6 +39,7 @@ function App() {
     setSelectCohort(cohort.original);
     setShowAllStudents(false);
     setSelectCohortReadable(cohort.readable);
+    setSearchBar('');
   }
 
   return (
