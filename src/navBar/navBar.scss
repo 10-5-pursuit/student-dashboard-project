@@ -1,0 +1,70 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    flex-basis: 50px;
+    flex-shrink: 0;
+   
+
+    &__searchAndFilter {
+        display: flex;
+        justify-content: space-between;
+    }
+;
+
+&__searchBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    position: relative;
+    margin-right: 20px;
+}
+    
+    &__searchInput {
+        margin-right: 10px;
+        flex-grow: 1;
+        padding: 5px;
+        width: 100%;
+        height: 30px;
+        border-radius: 25px;
+        border: 1px solid black;
+      }
+
+    &__pursuitLogo {
+       border-radius: 50px; 
+       margin-left: auto;
+       position: fixed;
+       right: 10px;
+       top: 10px;
+       height: 50px;
+    }
+
+
+    &__searchButton {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: inline;
+        font-size: 20px;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        padding: 1vw;
+        z-index: 2;
+        margin-left: auto;
+        position: absolute;
+    }
+
+    &__filter {
+        width: 200px;
+        border-radius: 25px;
+        height: 45px;
+        margin-right: 20px;
+    }
+
+}
