@@ -1,0 +1,27 @@
+.comment-container {
+    margin: 10px;
+
+    &__commenter-section {
+        display: grid;
+        border: 2px solid rgb(194, 194, 194);
+        padding: 10px;
+        margin: 10px;
+        width: 90%;
+        gap: 10px;
+
+        input {
+            width: 40%;
+        }
+
+        .addbtn {
+            color: white;
+            background-color: rgb(93, 147, 110);
+            border: none;
+            margin: 10px;
+            width: 16%;
+            border-radius: 5px;
+            padding: 3px;
+        }
+    }
+
+}

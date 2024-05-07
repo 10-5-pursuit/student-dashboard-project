@@ -1,0 +1,86 @@
+.student-container {
+    margin: 40px;
+    line-height: 1.5;
+    width: 540px;
+
+}
+.students-and-count {
+    margin-bottom: 10px;
+
+    hr {
+        width: 100%;
+    }
+
+    span {
+        color: rgb(93, 147, 110)
+    }
+}
+
+ul {
+    display: grid;
+    gap: 10px;
+    
+    li {
+        display: grid;
+        grid-template-columns: 100px 1fr 0.5fr;
+        border: 2px solid rgb(93, 147, 110);
+        height: auto;
+        width: 700px;
+        color: rgb(0, 0, 0);
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+        gap: 10px 30px;
+        padding: 10px;
+    }
+
+    img {
+        margin-left: 10px;
+        height: 100px;
+    }
+
+    .show-more a {
+        margin-top: 10px;
+        color: rgb(93, 147, 110);
+    
+    }
+
+    .track-Status {
+        grid-column: 3/4;
+        grid-row: 1;
+    }
+
+    .on-track {
+        color: rgb(93, 147, 110);
+    }
+
+    .off-track {
+        color: red;
+    }
+    
+    
+    span {
+        color: rgb(93, 147, 110);
+    }
+
+    .certs-scores {
+        grid-column: 1/4;
+        
+    .details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        margin: 20px 0;
+    }
+    hr {
+        grid-column: 1 / 4;
+        width: 95%;
+        justify-self: center;
+        margin: 34px 0px;
+    }
+
+    .comments {
+        grid-column: 1/4;
+    }
+    }
+}
